@@ -38,19 +38,42 @@ export default function Experience() {
             development work. Below is my professional experience to date.
           </p>
 
-          <div className="bg-bg-card border border-border-subtle rounded-2xl p-8 hover:border-border transition-all duration-300">
-            <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                <Briefcase size={20} className="text-accent" />
+          <div className="space-y-5">
+            <div className="bg-bg-card border border-border-subtle rounded-2xl p-8 hover:border-border transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                  <Briefcase size={20} className="text-accent" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-text">SDE Intern</h3>
+                  <p className="text-accent text-sm font-medium">ASYVA InfoTech</p>
+                  <p className="text-text-muted text-xs mt-1">Dehradun · July 2026 – August 2026</p>
+                  <ul className="text-text-muted text-sm mt-3 leading-relaxed space-y-1.5 list-disc list-inside">
+                    <li>Worked with Python, SQL and PostgreSQL for software and data-related development tasks.</li>
+                    <li>Worked on modules involving PostgreSQL data storage and cloud storage.</li>
+                    <li>Used Git and GitHub for version control and development workflow.</li>
+                    <li>Gained hands-on exposure to Microsoft Azure, Google Cloud Platform and Apache Airflow.</li>
+                    <li>Worked with Agile/Scrum practices, SDLC concepts and CI/CD workflows.</li>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-text">Web Development Intern</h3>
-                <p className="text-accent text-sm font-medium">Codec Technologies</p>
-                <p className="text-text-muted text-sm mt-3 leading-relaxed">
-                  Worked with web development technologies and gained practical
-                  experience building web-based applications. Focused on
-                  front-end development fundamentals and real-world project work.
-                </p>
+            </div>
+
+            <div className="bg-bg-card border border-border-subtle rounded-2xl p-8 hover:border-border transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                  <Briefcase size={20} className="text-accent" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-text">Web Development Intern</h3>
+                  <p className="text-accent text-sm font-medium">Codec Technologies</p>
+                  <p className="text-text-muted text-xs mt-1">July 2025 – September 2025</p>
+                  <p className="text-text-muted text-sm mt-3 leading-relaxed">
+                    Worked with web development technologies and gained practical
+                    experience building web-based applications. Focused on
+                    front-end development fundamentals and real-world project work.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
