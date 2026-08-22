@@ -42,7 +42,30 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/[0.07] rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-purple-500/[0.05] rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="relative w-full grid lg:grid-cols-[1.2fr_0.8fr] gap-14 items-center py-16">
+        <div className="relative w-full py-16">
+          {/* Mobile Photo - visible below lg */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:hidden flex justify-center mb-10"
+          >
+            <div className="relative">
+              <div className="absolute -inset-3 bg-gradient-to-br from-accent via-purple-500 to-accent rounded-full blur-lg opacity-30 animate-[pulse-glow_4s_ease-in-out_infinite]" />
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-white/10 shadow-[0_0_40px_rgba(139,92,246,0.15)]">
+                <img
+                  src="/photo.jpg"
+                  alt="Kailash Purohit"
+                  className="w-full h-full object-contain bg-bg-card"
+                />
+              </div>
+              <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-green-500 border-4 border-bg flex items-center justify-center shadow-[0_0_12px_rgba(34,197,94,0.4)]">
+                <span className="text-white text-xs">✓</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-14 items-center">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -211,6 +234,7 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
+          </div>
         </div>
       </section>
 
