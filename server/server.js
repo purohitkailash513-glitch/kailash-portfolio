@@ -1,3 +1,4 @@
+```javascript
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
@@ -19,11 +20,13 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         scriptSrc: ["'self'", "https://cdn.kookiok.com"],
+        connectSrc: ["'self'", "https://api.kookiok.com"],
       },
     },
   })
 );
 
+// CORS configuration
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN || true,
@@ -73,3 +76,4 @@ app.use((err, _req, res, _next) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+```
