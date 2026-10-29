@@ -18,16 +18,50 @@ app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
+        defaultSrc: ["'self'"],
+
         scriptSrc: [
           "'self'",
-          "https://api.kiprotect.com",
-          "https://cdn.kookiok.com",
+          "https://cdn.passiro.com",
         ],
+
         connectSrc: [
           "'self'",
-          "https://api.kiprotect.com",
-          "https://cdn.kookiok.com",
+          "https://cdn.passiro.com",
+          "https://passiro.com",
+          "https://www.passiro.com",
         ],
+
+        styleSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https:",
+        ],
+
+        imgSrc: [
+          "'self'",
+          "data:",
+          "blob:",
+          "https:",
+        ],
+
+        fontSrc: [
+          "'self'",
+          "data:",
+          "https:",
+        ],
+
+        // Allow the CMP to display its consent interface.
+        frameSrc: [
+          "'self'",
+          "https://passiro.com",
+          "https://www.passiro.com",
+        ],
+
+        objectSrc: ["'none'"],
+        baseUri: ["'self'"],
+        formAction: ["'self'"],
+        upgradeInsecureRequests: [],
       },
     },
   })
@@ -45,7 +79,7 @@ app.use(
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: false, limit: "10kb" }));
 
-// API Routes
+// API routes
 app.use("/api/contact", contactRoutes);
 
 // Health check
