@@ -13,21 +13,20 @@ const PORT = process.env.PORT || 3001;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Security
+// Security and Content Security Policy
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
         scriptSrc: [
           "'self'",
-          "https://cdn.kookiok.com",
           "https://api.kiprotect.com",
+          "https://cdn.kookiok.com",
         ],
-
         connectSrc: [
           "'self'",
-          "https://api.kookiok.com",
           "https://api.kiprotect.com",
+          "https://cdn.kookiok.com",
         ],
       },
     },
@@ -49,6 +48,7 @@ app.use(express.urlencoded({ extended: false, limit: "10kb" }));
 // API Routes
 app.use("/api/contact", contactRoutes);
 
+// Health check
 app.get("/api/health", (_req, res) => {
   res.json({
     status: "ok",
@@ -70,7 +70,7 @@ app.get(/.*/, (req, res, next) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
 
-// 404
+// 404 handler
 app.use((_req, res) => {
   res.status(404).json({ error: "Route not found" });
 });
@@ -81,6 +81,7 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: "Internal server error" });
 });
 
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
