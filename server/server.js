@@ -1,4 +1,3 @@
-
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
@@ -19,8 +18,17 @@ app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        scriptSrc: ["'self'", "https://cdn.kookiok.com"],
-        connectSrc: ["'self'", "https://api.kookiok.com"],
+        scriptSrc: [
+          "'self'",
+          "https://cdn.kookiok.com",
+          "https://api.kiprotect.com",
+        ],
+
+        connectSrc: [
+          "'self'",
+          "https://api.kookiok.com",
+          "https://api.kiprotect.com",
+        ],
       },
     },
   })
