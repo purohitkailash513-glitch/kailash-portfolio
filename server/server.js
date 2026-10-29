@@ -13,23 +13,24 @@ const PORT = process.env.PORT || 3001;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Security and Content Security Policy
+// Security and Content Security Policy (CSP)
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
 
+        // Allow KookiOk consent-management script
         scriptSrc: [
           "'self'",
-          "https://cdn.passiro.com",
+          "https://cdn.kookiok.com",
         ],
 
+        // Allow communication with KookiOk services
         connectSrc: [
           "'self'",
-          "https://cdn.passiro.com",
-          "https://passiro.com",
-          "https://www.passiro.com",
+          "https://cdn.kookiok.com",
+          "https://api.kookiok.com",
         ],
 
         styleSrc: [
@@ -51,11 +52,11 @@ app.use(
           "https:",
         ],
 
-        // Allow the CMP to display its consent interface.
+        // Allow consent interfaces hosted by the CMP
         frameSrc: [
           "'self'",
-          "https://passiro.com",
-          "https://www.passiro.com",
+          "https://cdn.kookiok.com",
+          "https://api.kookiok.com",
         ],
 
         objectSrc: ["'none'"],
