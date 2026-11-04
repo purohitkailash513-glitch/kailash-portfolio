@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+
+# Consenti local data
+consenti-data/
+# Consenti local backups and inspection scripts
+consenti-backup/
+inspect-consenti-db.mjs

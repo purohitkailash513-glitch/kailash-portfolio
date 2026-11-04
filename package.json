@@ -12,6 +12,8 @@
     "server:dev": "node --watch server/server.js"
   },
   "dependencies": {
+    "@consenti/api": "^0.6.0",
+    "@consenti/ui": "^0.6.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
