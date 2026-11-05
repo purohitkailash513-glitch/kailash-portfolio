@@ -29,7 +29,7 @@ app.use(
         ],
 
         // No external consent API required for CDN-only setup
-        connectSrc: ["'self'"],
+        connectSrc: ["'self'", "https://cdn.jsdelivr.net"],
 
         styleSrc: [
           "'self'",
