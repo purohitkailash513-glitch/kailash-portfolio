@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,6 +36,25 @@
 
   <body>
     <div id="root"></div>
+
+    <!-- Consenti Cookie Consent Platform -->
+    <script src="https://cdn.jsdelivr.net/npm/@consenti/ui@0.6.0/dist/index.umd.js"></script>
+
+    <script>
+      const { ConsentiSetup } = ConsentiUI;
+
+      window.consentiWidget = new ConsentiSetup({
+        compliance: {
+          type: "opt-in-dpdpa"
+        },
+        core: {
+          locale: "en"
+        },
+        hidePoweredBy: true
+      });
+    </script>
+
+    <!-- React Application -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
