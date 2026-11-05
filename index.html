@@ -21,16 +21,28 @@
 
     <meta name="author" content="Kailash Purohit" />
 
-    <meta property="og:title" content="Kailash Purohit | Software Developer & AI/ML Enthusiast" />
-    <meta property="og:description" content="Portfolio of Kailash Purohit — Computer Science graduate, Software Developer and AI/ML Enthusiast." />
+    <meta
+      property="og:title"
+      content="Kailash Purohit | Software Developer & AI/ML Enthusiast"
+    />
+    <meta
+      property="og:description"
+      content="Portfolio of Kailash Purohit — Computer Science graduate, Software Developer and AI/ML Enthusiast."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/og-image.svg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kailash Purohit | Software Developer & AI/ML Enthusiast" />
-    <meta name="twitter:description" content="Portfolio of Kailash Purohit — Software Developer and AI/ML Enthusiast." />
+    <meta
+      name="twitter:title"
+      content="Kailash Purohit | Software Developer & AI/ML Enthusiast"
+    />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Kailash Purohit — Software Developer and AI/ML Enthusiast."
+    />
     <meta name="twitter:image" content="/og-image.svg" />
   </head>
 
@@ -41,17 +53,35 @@
     <script src="https://cdn.jsdelivr.net/npm/@consenti/ui@0.6.0/dist/index.umd.js"></script>
 
     <script>
-      const { ConsentiSetup } = ConsentiUI;
+      (function () {
+        const consentiGlobal =
+          window.ConsentiUI || window.Consenti;
 
-      window.consentiWidget = new ConsentiSetup({
-        compliance: {
-          type: "opt-in-dpdpa"
-        },
-        core: {
-          locale: "en"
-        },
-        hidePoweredBy: true
-      });
+        const ConsentiSetup =
+          consentiGlobal?.ConsentiSetup;
+
+        if (typeof ConsentiSetup !== "function") {
+          console.error(
+            "Consenti initialization failed.",
+            "Available globals:",
+            Object.keys(window).filter((key) =>
+              key.toLowerCase().includes("consenti")
+            )
+          );
+          return;
+        }
+
+        window.consentiWidget = new ConsentiSetup({
+          compliance: {
+            type: "opt-in-dpdpa"
+          },
+          core: {
+            locale: "en"
+          }
+        });
+
+        console.log("Consenti initialized successfully.");
+      })();
     </script>
 
     <!-- React Application -->
